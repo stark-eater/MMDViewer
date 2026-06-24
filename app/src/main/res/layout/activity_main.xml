@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:ignore="HardcodedText">
+    <!-- ^^^ That one line fixes the navigation bar overlap! ^^^ -->
+
+    <!-- 3D Viewport -->
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6" />
+
+    <!-- Control Panel -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- Add this right above the Toggles -->
+            <Button
+                android:id="@+id/btnLoadModel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Load Custom Model (Select Folder)"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Toggles -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <CheckBox android:id="@+id/cbSelfShadow" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Self Shadow" android:checked="true"/>
+                <CheckBox android:id="@+id/cbGroundShadow" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Ground Shadow" android:checked="true"/>
+                <CheckBox android:id="@+id/cbAxes" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Axes/Grid" android:checked="true"/>
+            </LinearLayout>
+
+            <!-- Model Transforms -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Model Transform (X, Y, Z)" android:textStyle="bold" android:layout_marginTop="16dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <EditText android:id="@+id/etModelPosX" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Pos X" android:inputType="numberSigned|numberDecimal" android:text="0.0"/>
+                <EditText android:id="@+id/etModelPosY" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Pos Y" android:inputType="numberSigned|numberDecimal" android:text="0.0"/>
+                <EditText android:id="@+id/etModelPosZ" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Pos Z" android:inputType="numberSigned|numberDecimal" android:text="0.0"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <EditText android:id="@+id/etModelRotX" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Rot X" android:inputType="numberSigned|numberDecimal" android:text="0.0"/>
+                <EditText android:id="@+id/etModelRotY" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Rot Y" android:inputType="numberSigned|numberDecimal" android:text="0.0"/>
+                <EditText android:id="@+id/etModelRotZ" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Rot Z" android:inputType="numberSigned|numberDecimal" android:text="0.0"/>
+            </LinearLayout>
+            <Button android:id="@+id/btnApplyModel" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Apply Model Transforms"/>
+
+            <!-- Camera Transforms -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Camera Transform (X, Y, Z)" android:textStyle="bold" android:layout_marginTop="16dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <EditText android:id="@+id/etCamPosX" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Pos X" android:inputType="numberSigned|numberDecimal" android:text="0.0"/>
+                <EditText android:id="@+id/etCamPosY" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Pos Y" android:inputType="numberSigned|numberDecimal" android:text="15.0"/>
+                <EditText android:id="@+id/etCamPosZ" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Pos Z" android:inputType="numberSigned|numberDecimal" android:text="25.0"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <EditText android:id="@+id/etCamRotX" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Rot X" android:inputType="numberSigned|numberDecimal" android:text="-20.0"/>
+                <EditText android:id="@+id/etCamRotY" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Rot Y" android:inputType="numberSigned|numberDecimal" android:text="0.0"/>
+                <EditText android:id="@+id/etCamRotZ" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Rot Z" android:inputType="numberSigned|numberDecimal" android:text="0.0"/>
+            </LinearLayout>
+            <Button android:id="@+id/btnApplyCamera" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Apply Camera Transforms"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
